@@ -10,6 +10,24 @@
 % TODO: this package is out of date, before submission I need something else
 \usepackage{preprint}
 \usepackage{cool}
+\usepackage{xparse}
+
+% Save the original cool derivatives if you ever need them
+\let\CoolD\D
+\let\CoolDt\Dt
+
+\RenewDocumentCommand{\D}{ m g }{%
+    \IfNoValueTF{#2}
+        {\frac{\partial}{\partial #1}}%
+        {\frac{\partial #1}{\partial #2}}%
+}
+
+\NewDocumentCommand{\Dt}{ m g }{%
+  \IfNoValueTF{#2}
+    {\frac{d}{d #1}}%
+    {\frac{d #1}{d #2}}%
+}
+
 
 %% Math packages
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
@@ -288,11 +306,11 @@ state variables for the initial and boundary conditions.
 The next step is to calculate the directional functional derivative of the
 Lagrangian, which we use the definition from \citet[p. 228]{zeidler_applied_1995}:
 \begin{equation}
-    \D{F}{u}\, h = \lim_{\epsilon \to 0} \frac{F(u + \epsilon h) - F(u)}{\epsilon} = \left[ \frac{d}{d \epsilon} F(u + \epsilon h) \right]_{\epsilon = 0},
+    \CoolD{F}{u}\, h = \lim_{\epsilon \to 0} \frac{F(u + \epsilon h) - F(u)}{\epsilon} = \left[ \frac{d}{d \epsilon} F(u + \epsilon h) \right]_{\epsilon = 0},
 \end{equation}
-where $\D{F}{u}$ is a linear operator. In order to facilitate the mathematical constraints
+where $\CoolD{F}{u}$ is a linear operator. In order to facilitate the mathematical constraints
 and avoid lack of rigor, we will go ahead and assume that $F(u)$ will be always 
-continuous, which means that $\D{F}{u}$ will remain the same in all directions
+continuous, which means that $\CoolD{F}{u}$ will remain the same in all directions
 and that it exists. 
 Let us also define a ``regular'' and ``partial'' variants
 for the multivariate case. With the regular we assume that all the variables
@@ -300,7 +318,7 @@ are dependent on each other, which means that the directional functional derivat
 becomes:
 \begin{multline}\label{eq:regular}
 \Style{DDisplayFunc=outset,DShorten=false}
-   \D{F(m, u_1, \cdots, u_{N})}{m}\, h = \\
+   \CoolD{F(m, u_1, \cdots, u_{N})}{m}\, h = \\
   \quad \left[ \frac{d}{d \epsilon} F(m + \epsilon h, u_1(m + \epsilon h), \cdots , u_N(m + \epsilon h)) \right]_{\epsilon = 0},
 \end{multline}
 while in the partial case one only considers that specific variable:
@@ -313,7 +331,7 @@ function with relation to the model is equal to the partial derivative of the
 lagrangian in Eq.~\ref{eq:lagrangian}, so long that the partial derivatives
 with relation to all the other variables is set to zero. This can be expressed as
 \begin{multline}
-    \D{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{\mathbf{R}} = 
+    \CoolD{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{\mathbf{R}} = 
     \pderiv{
 \mathcal{L}\left(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right)
     }{\mathbf{R}}
@@ -322,7 +340,7 @@ with relation to all the other variables is set to zero. This can be expressed a
     \alpha \in
 \left\{ p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right\}.
 \end{multline}
-In this case, one would also have to set $\D{\mathcal{L}}{c}=0$, but that does
+In this case, one would also have to set $\CoolD{\mathcal{L}}{c}=0$, but that does
 not lead to an equation that needs solving on top of the adjoint state equations
 given by \( \pderiv{\mathcal{L}}{\alpha}=0 \),
 and this paper assumes that $\mathbf{R}$ and $c$ are not related.
@@ -454,7 +472,7 @@ which leave us with the only with the derivative of the cost function. This
 derivative is calculated as follows:
 \begin{multline}\label{eq:costDeriv}
     \pderiv{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right)=\\
-    \Bigg[ \D[1]{}{\epsilon} \frac{1}{\beta} \Sum{ \Sum{
+    \Bigg[ \Dt{\epsilon} \frac{1}{\beta} \Sum{ \Sum{
             \Int{
                 \Big( S_{s,r} \left( p_{s}(\mathbf{x}, t) + \epsilon \, \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right) - d_{s,r}(t) \Big)^2
             }{t, 0, T} 
@@ -575,7 +593,7 @@ at another point in space, and use the its sampling property:
 which when applied to the Eq.~\ref{eq:dLdR} leads to the sought after
 derivative of the cost function:
 \begin{equation}\label{eq:gradient}
-    \D[1]{J}{R_{i}} = 
+    \CoolD[1]{J}{R_{i}} = 
 2 \Int{
         c^2(\mathbf{x}) \, \eta(\mathbf{x}, t) \, v_{s,i}(\mathbf{x}, t) 
     }{t, 0, T},
