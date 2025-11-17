@@ -174,7 +174,7 @@
 
 \appendix
 
-\section{Derivation of the adjoint-state equations and gradient}
+\section{Derivation of the adjoint-state equations and derivative kernel}
 
 \Style{DDisplayFunc=outset,DShorten=false}
 
@@ -217,7 +217,7 @@ $p_{s}$ and $v_{s,i}$ by the system of partial diffential equations derived in
  &   \pderiv[1]{v_{s,i}}{t} + \pderiv[1]{p_{s}}{x_{i}} = 0\\
  &  \pderiv[1]{p_{s}}{t} + \Sum{
         c \pderiv[1]{c}{x_{i}} \, v_{s,i} - 2 c^2 R_{i} + c^2 \pderiv[1]{v_{s, i}}{x_{i}}
-    }{i, 1, N_{s}} - f = 0,
+    }{i, 1, 2} - f = 0,
 \end{align}
 where if $F_1$ and $F_2$ are equal to zero, then the $p_s$ and $v_{s,i}$ are
 actual physical solutions to this system.
@@ -527,15 +527,64 @@ which is a weak/integral formulation of the following PDE:
     }{i,1,2}
 + 
     \frac{2}{\beta} \Sum{
-                 S_{s,r}^{\dagger} \Big( S_{s,r} \left( p_{s}(\mathbf{x'}, t) \right) - d_{s,r}(t) \Big)
+                 S_{s,r}^{\dagger} \Big( S_{s,r} \left( p_{s}(\mathbf{x}, t) \right) - d_{s,r}(t) \Big)
         }{r, 1, N_{r}}=0
 \end{multline}
 where the $\overline{s}$ were replaced with $s$ to simplify notation, given
 now it is clear that the equation is the same for any shot index.
+Calculating the derivative of the lagrangian in Eq.~\ref{eq:lagrangian}
+with relation to the particle momentum $v_{s,i}$, for a specific shot index,
+will result into the other adjoint state equation:
+\Style{DDisplayFunc=outset,DShorten=false}
+\begin{equation}\label{eq:dLdv}
+    \pderiv{\xi_{s,i}}{t} +
+    \pderiv{\left( c^2 \eta \right)}{x_{i}} + 
+     \eta \left(2 c^2 R_{i} - c \pderiv{c}{x_{i}} \right) = 0,
+\end{equation}
+which together with Eq.~\ref{eq:dLdp5} compose the adjoint system of equations
+to be solved for $\xi_{s,i}$ and $\eta_{s}$.
 
-
-
-
+The last step is to calculate the derivative of the lagrangian
+(Eq.~\ref{eq:lagrangian}) with relation to the reflectivity, to a specific
+component $\overline{i}$, in a similar fashion to the other derivatives:
+\begin{multline}\label{eq:dLdR}
+    \pderiv{\mathcal{L}\left(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right)}{R_{\overline{i}}} \left( \delta_{i,\overline{i}} \, \phi \right) \\=
+    2 \Int{\Int{
+        c^2(\mathbf{x}) \, \eta(\mathbf{x}, t) \, v_{s, \overline{i}}(\mathbf{x}, t) \,\phi(\mathbf{x})
+    }{\mathbf{x}, \Omega}}{t, 0, T} \\=
+    \left<\
+    2 \Int{
+        c^2(\mathbf{x}) \, \eta(\mathbf{x}, t) \, v_{s, \overline{i}}(\mathbf{x}, t) 
+    }{t, 0, T} 
+    ,\;
+    \phi(\mathbf{x})
+    \right>_{\Omega},
+\end{multline}
+where $\phi(\mathbf{x})$ is just a test function. The integral over space in
+this directional functional derivative is a inner product of the functional
+derivative kernel (Fréchet, non-directional) with the test function, which collapses the space
+variable and makes the resulting test derivative be a single scalar for the whole
+space $\Omega$. When discretized, this non-directional derivative becomes
+a jacobian, while the directional version becomes the dot product of the
+jacobian with a test vector. Strategically here, a simple way to obtain
+the derivative one can simply choose the test function to be a Dirac delta
+at another point in space, and use the its sampling property:
+\begin{equation}
+    \phi(\mathbf{x}) = \delta(\mathbf{x} - \mathbf{x}'),
+\end{equation}
+which when applied to the Eq.~\ref{eq:dLdR} leads to the sought after
+derivative of the cost function:
+\begin{equation}\label{eq:gradient}
+    \D[1]{J}{R_{i}} = 
+2 \Int{
+        c^2(\mathbf{x}) \, \eta(\mathbf{x}, t) \, v_{s,i}(\mathbf{x}, t) 
+    }{t, 0, T},
+\end{equation}
+where again it is clear that the expression for the derivative is the
+same for different components ($i$), hence the equation above has
+$i$ instead of $\overline{i}$. The equation above (Eq.~\ref{eq:gradient}),
+when discretized is the gradient of the cost function with relation to the
+vector-reflectivity.
 
 
 %%%%%%%%%%%%  Supplementary Figures  %%%%%%%%%%%%
