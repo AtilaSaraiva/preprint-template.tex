@@ -7,7 +7,9 @@
 %\documentclass{article} % One-column default
 \documentclass[twocolumn, switch]{article} % Method A for two-column formatting
 
+% TODO: this package is out of date, before submission I need something else
 \usepackage{preprint}
+\usepackage{cool}
 
 %% Math packages
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
@@ -66,13 +68,15 @@
 			{\noexpand\orcidicon}}
 }
 % Define the ORCID iD command for each author separately. Here done for two authors.
-\newcommand{\orcidauthorA}{0000-0000-0000-0001}
-\newcommand{\orcidauthorB}{0000-0000-0000-0002}
-\newcommand{\orcidauthorC}{0000-0000-0000-0003}
-\newcommand{\orcidauthorD}{0000-0000-0000-0004}
+\newcommand{\orcidauthorA}{0000-0003-0042-3583}
+\newcommand{\orcidauthorB}{0000-0001-6654-6661}
+% \newcommand{\orcidauthorC}{0000-0000-0000-0003}
+% \newcommand{\orcidauthorD}{0000-0000-0000-0004}
 
 %%%%%%%%%%%%%%%%   Title   %%%%%%%%%%%%%%%%
-\title{A preprint template for LaTeX users}
+\title{Acoustic Vector-reflectivity inversion using first-order parametrization}
+
+
 
 % Add watermark with submission status
 \usepackage{xwatermark}
@@ -81,16 +85,16 @@
 % Right watermark
 \newwatermark[firstpage,color=gray!60,angle=90,scale=0.32, xpos=3.9in,ypos=0]{\href{https://doi.org/}{\color{gray}{Preprint doi}}}
 % Bottom watermark
-\newwatermark[firstpage,color=gray!90,angle=0,scale=0.28, xpos=0in,ypos=-5in]{*correspondence: \texttt{email@institution.edu}}
+\newwatermark[firstpage,color=gray!90,angle=0,scale=0.28, xpos=0in,ypos=-5in]{*correspondence: \texttt{saraivaq@ualberta.ca}}
 
 %%%%%%%%%%%%%%%  Author list  %%%%%%%%%%%%%%%
 \usepackage{authblk}
 \renewcommand*{\Authfont}{\bfseries}
-\author[1\thanks{\tt{asmith@college.edu}}]{Alice Smith\orcidA{}}
-\author[2]{Bob Jones\orcidB{}}
+\author[1]{Átila Saraiva Quintela Soares\orcidA{}}
+\author[1]{Mauricio Sacchi\orcidB{}}
 
-\affil[1]{Department of Mathematics, University X}
-\affil[2]{Department of Biology, University Y}
+\affil[1]{Department of Physics, University of Alberta}
+% \affil[2]{Department of Physics, University of Alberta}
 
 % Option 2 for author list
 %\author{
@@ -125,7 +129,7 @@
 \maketitle
 
 \begin{abstract}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum. Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. 
+% Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum. Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. 
 \end{abstract}
 %\keywords{First keyword \and Second keyword \and More} % (optional)
 \vspace{0.35cm}
@@ -140,89 +144,20 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibu
 % \linenumbers
 
 \section{Introduction}
-\lipsum[2]
-\lipsum[3]
 
 
-\section{Headings: first level}
-\label{sec:headings}
 
-\lipsum[7] See Section \ref{sec:headings}.
-
-\subsection{Headings: second level}
-\lipsum[5]
-\begin{equation}
-\xi _{ij}(t)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
-\end{equation}
-
-\subsubsection{Headings: third level}
-\lipsum[6]
-
-\paragraph{Paragraph}
-\lipsum[7]
-
-\section{Examples of citations, figures, tables, references}
-\label{sec:others}
-\lipsum[8] \cite{kour2014real,kour2014fast} and see \cite{hadash2018estimate}.
-
-The documentation for \verb+natbib+ may be found at
-\begin{center}
-  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-\end{center}
-Of note is the command \verb+\citet+, which produces citations
-appropriate for use in inline text.  For example,
-\begin{verbatim}
-   \citet{hasselmo} investigated\dots
-\end{verbatim}
-produces
-\begin{quote}
-  Hasselmo, et al.\ (1995) investigated\dots
-\end{quote}
-
-\begin{center}
-  \url{https://www.ctan.org/pkg/booktabs}
-\end{center}
+\section{Methods}
 
 
-\subsection{Figures}
-\lipsum[10] 
-See Figure \ref{fig:fig1}. Here is how you add footnotes. %\footnote{Sample of the first footnote.}
-\lipsum[11] 
+\section{Results}
 
-\begin{figure}[H]
-  \centering
-  \fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-  \caption{Sample figure caption.}
-  \label{fig:fig1}
-\end{figure}
 
-\subsection{Tables}
-\lipsum[12]
-See awesome Table \ref{tab:table}.
+\section{Discussion}
 
-\begin{table}[H]
- \caption{Sample table title}
-  \centering
-  \begin{tabular}{lll}
-    \toprule
-    \multicolumn{2}{c}{Part}                   \\
-    \cmidrule(r){1-2}
-    Name     & Description     & Size ($\mu$m) \\
-    \midrule
-    Dendrite & Input terminal  & $\sim$100     \\
-    Axon     & Output terminal & $\sim$10      \\
-    Soma     & Cell body       & up to $10^6$  \\
-    \bottomrule
-  \end{tabular}
-  \label{tab:table}
-\end{table}
 
-\subsection{Lists}
-\begin{itemize}
-\item Lorem ipsum dolor sit amet
-\item consectetur adipiscing elit. 
-\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
-\end{itemize}
+\section{Conclusion}
+
 
 %%%%%%%%%%%% Supplementary Methods %%%%%%%%%%%%
 %\footnotesize
@@ -230,11 +165,378 @@ See awesome Table \ref{tab:table}.
 
 %%%%%%%%%%%%% Acknowledgements %%%%%%%%%%%%%
 %\footnotesize
-%\section*{Acknowledgements}
+\section*{Acknowledgements}
 
 %%%%%%%%%%%%%%   Bibliography   %%%%%%%%%%%%%%
 \normalsize
+% TODO: remember to remove URL from the references
 \bibliography{references}
+
+\appendix
+
+\section{Derivation of the adjoint-state equations and gradient}
+
+\Style{DDisplayFunc=outset,DShorten=false}
+
+This appendix shows the calculations of the gradient in greater detail using
+the adjoint state method based on the works by 
+\citet{plessix_review_2006, fichtner_adjoint_2006, cea_conception_1986} .
+The objective is to calculate the functional derivative of the following
+cost function:
+\begin{equation}\label{eq:cost}
+    J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}) = 
+    \frac{1}{2 N_{s} N_{r} T} \Sum{ \Sum{
+        \Int{
+            \left( S_{s,r} p_{s}(\mathbf{x}, t) - d_{s,r}(t) \right)^2
+        }{t, 0, T} 
+    }{r, 1, N_{r}} }{s, 1, N_{s}},
+\end{equation}
+where $c(\mathbf{x})$ is the velocity model, 
+$\mathbf{R} = \left\{ R_1(\mathbf{x}), R_2(\mathbf{x}) \right\}$ is the
+vector-reflectivity model.
+% $N_{s}$ is the number of sources, $N_{r}$ is the number of receivers, 
+Moreover, $T$ is the recording time, $\mathbf{x} = \left\{ x_1, x_2 \right\} \in \Omega$ are the
+spatial coordinates. Additionally, the state variable
+$p_{s}(\mathbf{x}, t)$ is the pressure wavefield,
+and particle momentum $\mathbf{v}_{s} = \left\{ v_{s, 1}, v_{s, 2} \right\}$, where
+$s \in \left\{ 1, \cdots, N_s \right\}$ is the shot index and $r \in \left\{ 1, \cdots, N_{r} \right\}$
+is the receiver index. $S_{s,r}$ is a sampling operator that samples
+the $p_{s}$ at a specific receiver position $r$ and can be different for every
+shot index $s$.
+The definition of the sampling operator used in this paper is:
+\begin{equation}
+    S_{s,r} p_{s} = \Int{p_{s}(\mathbf{x}, t) \, \delta(\mathbf{x} -  \mathbf{x}_{s,r})}{\mathbf{x}, \Omega},
+\end{equation}
+where $\mathbf{x}_{r}$ is the position of the receiver.
+
+Both velocity ($c$) and vector-reflectivity ($\mathbf{R}$) are related to the state variables 
+$p_{s}$ and $v_{s,i}$ by the system of partial diffential equations derived in
+\citet{soares_first-order_2025} in form of functional mappings:
+\begin{align}\label{eq:pde}
+\Style{DDisplayFunc=inset,DShorten=false}
+ &   \pderiv[1]{v_{s,i}}{t} + \pderiv[1]{p_{s}}{x_{i}} = 0\\
+ &  \pderiv[1]{p_{s}}{t} + \Sum{
+        c \pderiv[1]{c}{x_{i}} \, v_{s,i} - 2 c^2 R_{i} + c^2 \pderiv[1]{v_{s, i}}{x_{i}}
+    }{i, 1, N_{s}} - f = 0,
+\end{align}
+where if $F_1$ and $F_2$ are equal to zero, then the $p_s$ and $v_{s,i}$ are
+actual physical solutions to this system.
+In order to make the solution unique, let us use these boundary and initial
+conditions
+\begin{align}\label{eq:boundary}
+&   p_{s}(\mathbf{x}, 0) = 0,\\
+&   v_{s,i}(\mathbf{x}, 0) = 0,\\
+&   p_{s}(\mathbf{x}, t) = 0 \quad \text{at  }  \mathbf{x} \in \partial \Omega,\\
+&   v_{s,i}(\mathbf{x}, t) = 0 \quad \text{at  }  \mathbf{x} \in \partial \Omega.
+\end{align}
+All of these equations introduce a new problem, how to calculate the derivative
+of the cost function in Eq.~\ref{eq:cost} when we have an implicit relationship
+between the state variables and parameters in the form of a PDE? This is solved
+by using the adjoint state method.
+
+The first step in the adjoint state method is to assemble the augmented Lagrangian
+that turns the system of PDEs and boundary and initial conditions into
+regularization terms:
+\begin{equation}\label{eq:lagrangian}
+    \begin{aligned}
+ &   \mathcal{L}\left(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right) =
+    J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}) \\
+& \quad - 
+    \Sum{\Sum{
+        \Int{\Int{
+            \xi_{s,i} \left( \pderiv[1]{v_{s,i}}{t} + \pderiv[1]{p_{s}}{x_{i}} \right)
+        }{t,0,T}}{\mathbf{x}, \Omega}
+    }{i,1,2}}{s,1,N_{s}}\\
+ & \quad -
+    \Sum{
+        \Int{\Int{
+            \eta_{s} \left( \pderiv[1]{p_{s}}{t} + \Sum{
+                            c \pderiv[1]{c}{x_{i}} \, v_{s,i} - 2 c^2 R_{i} + c^2 \pderiv[1]{v_{s, i}}{x_{i}} - f 
+                        }{i, 1, N_{s}} \right)
+        }{t,0,T}}{\mathbf{x}, \Omega}
+    }{s,1,N_{s}}\\
+& \quad -
+    \Sum{
+        \Int{\Int{
+            \gamma_{s}(\mathbf{x}, t) p_{s}(\mathbf{x}, t)
+        }{t, 0, T}}{\mathbf{x}, \partial\Omega}
+    }{s,1,N_{s}}
+  -
+    \Sum{
+        \Int{
+            \mu_{s}(\mathbf{x}) p_{s}(\mathbf{x}, 0)
+        }{t, 0, T}
+    }{s,1,N_{s}}\\
+& \quad -
+    \Sum{
+        \Int{\Int{
+            \zeta_{s,i}(\mathbf{x}, t) v_{s,i}(\mathbf{x}, t)
+        }{t, 0, T}}{\mathbf{x}, \partial\Omega}
+    }{s,1,N_{s}}
+  -
+    \Sum{
+        \Int{
+            \lambda_{s,i}(\mathbf{x}) v_{s,i}(\mathbf{x}, 0)
+        }{t, 0, T}
+    }{s,1,N_{s}}\\
+    \end{aligned},
+\end{equation}
+with $\xi_{s,i}$, $\eta_{s}$ being the adjoint state variables for the PDEs, and
+$\gamma_{s}$, $\mu_{s}$, $\zeta_{s,i}$, and $\lambda_{s,i}$ are the adjoint
+state variables for the initial and boundary conditions.
+
+The next step is to calculate the directional functional derivative of the
+Lagrangian, which we use the definition from \citet[p. 228]{zeidler_applied_1995}:
+\begin{equation}
+    \D{F}{u}\, h = \lim_{\epsilon \to 0} \frac{F(u + \epsilon h) - F(u)}{\epsilon} = \left[ \frac{d}{d \epsilon} F(u + \epsilon h) \right]_{\epsilon = 0},
+\end{equation}
+where $\D{F}{u}$ is a linear operator. In order to facilitate the mathematical constraints
+and avoid lack of rigor, we will go ahead and assume that $F(u)$ will be always 
+continuous, which means that $\D{F}{u}$ will remain the same in all directions
+and that it exists. 
+Let us also define a ``regular'' and ``partial'' variants
+for the multivariate case. With the regular we assume that all the variables
+are dependent on each other, which means that the directional functional derivative
+becomes:
+\begin{multline}\label{eq:regular}
+\Style{DDisplayFunc=outset,DShorten=false}
+   \D{F(m, u_1, \cdots, u_{N})}{m}\, h = \\
+  \quad \left[ \frac{d}{d \epsilon} F(m + \epsilon h, u_1(m + \epsilon h), \cdots , u_N(m + \epsilon h)) \right]_{\epsilon = 0},
+\end{multline}
+while in the partial case one only considers that specific variable:
+\begin{equation}\label{eq:partial}
+   \pderiv{F(m, u_1, \cdots, u_{N})}{m}\, h = 
+   \left[ \frac{d}{dt} F(m + \epsilon h, u_1, \cdots , u_N) \right]_{\epsilon = 0}.
+\end{equation}
+These definitions are important because the regular derivative of the cost
+function with relation to the model is equal to the partial derivative of the
+lagrangian in Eq.~\ref{eq:lagrangian}, so long that the partial derivatives
+with relation to all the other variables is set to zero. This can be expressed as
+\begin{multline}
+    \D{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{\mathbf{R}} = 
+    \pderiv{
+\mathcal{L}\left(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right)
+    }{\mathbf{R}}
+    \iff \\
+    \pderiv{\mathcal{L}}{\alpha}=0 \quad \text{ for } 
+    \alpha \in
+\left\{ p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right\}.
+\end{multline}
+In this case, one would also have to set $\D{\mathcal{L}}{c}=0$, but that does
+not lead to an equation that needs solving on top of the adjoint state equations
+given by \( \pderiv{\mathcal{L}}{\alpha}=0 \),
+and this paper assumes that $\mathbf{R}$ and $c$ are not related.
+
+The adjoint state equations are calculated by equaling the derivatives
+the augmented Lagrangian (Eq.~\ref{eq:lagrangian}) with relation to the state variables
+$p_{s}$ and $v_{s,i}$ to zero. The derivative with relation to $p_{s}$ is calculated as
+follows using the definition:
+\begin{multline}\label{eq:dLdp}
+    \pderiv{\mathcal{L}\left(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right)}{p_{s}}\, h_{s} =
+    \pderiv{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{p_{s}}\, h_{s}\\
+    - 
+    \Sum{\Sum{
+        \Int{\Int{
+            \xi_{s,i} \left( \pderiv[1]{h_{s}}{x_{i}} \right)
+        }{t,0,T}}{\mathbf{x}, \Omega}
+    }{i,1,2}}{s,1,N_{s}}\\
+  -
+    \Sum{
+        \Int{\Int{
+            \eta_{s} \left( \pderiv[1]{h_{s}}{t} \right)
+        }{t,0,T}}{\mathbf{x}, \Omega}
+    }{s,1,N_{s}}\\
+ -
+    \Sum{
+        \Int{\Int{
+            \gamma_{s}(\mathbf{x}, t) h_{s}(\mathbf{x}, t)
+        }{t, 0, T}}{\mathbf{x}, \partial\Omega}
+    }{s,1,N_{s}}
+  -
+    \Sum{
+        \Int{
+            \mu_{s}(\mathbf{x}) h_{s}(\mathbf{x}, 0)
+        }{t, 0, T}
+    }{s,1,N_{s}}.
+\end{multline}
+The equation above is a derivative with relation to all possible $p_s$, for
+every shot index ($p_1, p_2, p_3$), whereas we only need the derivative for
+a specific one for the sought after adjoint state equation. Hence, it
+is strategic here to use the Kronecker delta to enforce that inside the
+definition of
+% TODO put a reference to the Kronecker delta here
+the test function $h_{s}$ like so:
+\begin{equation}
+    h_{s}(\mathbf{x}, t) = \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t),
+\end{equation}
+which when substituted back into Eq.~\ref{eq:dLdp} results into
+\begin{multline}\label{eq:dLdp1}
+    \pderiv{\mathcal{L}\left(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right)}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right) = \\
+    \pderiv{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right)\\
+    - 
+    \Sum{
+        \Int{\Int{
+            \xi_{\overline{s},i} \left( \pderiv[1]{\psi}{x_{i}} \right)
+        }{t,0,T}}{\mathbf{x}, \Omega}
+    }{i,1,2}
+  -
+        \Int{\Int{
+            \eta_{\overline{s}} \left( \pderiv[1]{\psi}{t} \right)
+        }{t,0,T}}{\mathbf{x}, \Omega}\\
+ -
+        \Int{\Int{
+            \gamma_{\overline{s}}(\mathbf{x}, t) \psi(\mathbf{x}, t)
+        }{t, 0, T}}{\mathbf{x}, \partial\Omega}
+  -
+        \Int{
+            \mu_{\overline{s}}(\mathbf{x}) \psi(\mathbf{x}, 0)
+        }{t, 0, T},
+\end{multline}
+where now the derivative is in relation to a specific shot index $\overline{s}$.
+The next step is to apply integration by parts in the relevant integrals to
+move every differential operator away from the test function $\psi$:
+\begin{multline}\label{eq:dLdp2}
+    \pderiv{\mathcal{L}\left(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right)}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right) = \\
+    \pderiv{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right)\\
+    - 
+    \Sum{
+        \Int{\Int{
+            \xi_{\overline{s},i} \; \psi
+        }{t,0,T}}{\mathbf{x}, \partial\Omega}
+    }{i,1,2}
+    + 
+    \Sum{
+        \Int{\Int{
+            \left( \pderiv[1]{\xi_{\overline{s},i}}{x_{i}} \right) \; \psi
+        }{t,0,T}}{\mathbf{x}, \Omega}
+    }{i,1,2}\\
+ -
+        \Int{
+                \eta_{\overline{s}}(\mathbf{x}, T) \psi(\mathbf{x}, T)
+        }{\mathbf{x}, \Omega}\\
+ +
+        \Int{
+                \eta_{\overline{s}}(\mathbf{x}, 0) \psi(\mathbf{x}, 0)
+        }{\mathbf{x}, \Omega}
+ +
+        \Int{\Int{
+             \left( \pderiv[1]{\eta_{\overline{s}}}{t} \right) \psi
+        }{t,0,T}}{\mathbf{x}, \Omega}\\
+ -
+        \Int{\Int{
+            \gamma_{\overline{s}}(\mathbf{x}, t) \psi(\mathbf{x}, t)
+        }{t, 0, T}}{\mathbf{x}, \partial\Omega}
+ -
+        \Int{
+            \mu_{\overline{s}}(\mathbf{x}) \psi(\mathbf{x}, 0)
+        }{t, 0, T},
+\end{multline}
+and here we can define the adjoint variables for the boundary conditions to be
+$\gamma_{\overline{s}}(\mathbf{x}, t) = - \Sum{\xi_{\overline{s},i}}{i,1,2}(\mathbf{x}, t)$,
+and $\mu_{\overline{s}}(\mathbf{x}) = \eta_{\overline{s}}(\mathbf{x}, 0)$. That
+way, the boundary and initial terms cancel if we also set 
+$\eta_{s}(\mathbf{x}, T) = 0$.
+\begin{multline}\label{eq:dLdp3}
+    \pderiv{\mathcal{L}\left(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right)}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right) = \\
+    \pderiv{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right)\\
+    + 
+    \Sum{
+        \Int{\Int{
+            \left( \pderiv[1]{\xi_{\overline{s},i}}{x_{i}} \right) \; \psi
+        }{t,0,T}}{\mathbf{x}, \Omega}
+    }{i,1,2}
+ +
+        \Int{\Int{
+             \left( \pderiv[1]{\eta_{\overline{s}}}{t} \right) \psi
+        }{t,0,T}}{\mathbf{x}, \Omega}\\
+\end{multline}
+which leave us with the only with the derivative of the cost function. This
+derivative is calculated as follows:
+\begin{multline}\label{eq:costDeriv}
+    \pderiv{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right)=\\
+    \Bigg[ \D[1]{}{\epsilon} \frac{1}{\beta} \Sum{ \Sum{
+            \Int{
+                \Big( S_{s,r} \left( p_{s}(\mathbf{x}, t) + \epsilon \, \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right) - d_{s,r}(t) \Big)^2
+            }{t, 0, T} 
+        }{r, 1, N_{r}} }{s, 1, N_{s}} \Bigg]_{\epsilon=0},
+\end{multline}
+with $\beta=\frac{1}{2 N_{s} N_{r} T}$. Given this is a derivative to $\epsilon \in \mathbb{R}$,
+it can go inside the sums and integrals, leading to:
+\begin{multline}\label{eq:costDeriv1}
+    \pderiv{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right)=\\
+    \frac{1}{\beta} \Sum{
+            \Int{
+                2 \Big( S_{\overline{s},r} \left( p_{\overline{s}}(\mathbf{x}, t) \right) - d_{\overline{s},r}(t) \Big) S_{\overline{s},r}  \, \psi(\mathbf{x}, t)
+            }{t, 0, T} 
+        }{r, 1, N_{r}}.
+\end{multline}
+The objective here is to put Eq.~\ref{eq:costDeriv1} with the same space-time 
+integrals of the other terms in Eq.~\ref{eq:dLdp3}, which will require playing
+around with the sampling operator definition:
+\begin{multline}\label{eq:costDeriv2}
+    \pderiv{J(c, \mathbf{R}, p_{s}, \mathbf{v}_{s})}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right)\\=
+    \frac{1}{\beta} \Sum{
+            \Int{
+                2 \Big( S_{\overline{s},r} \left( p_{\overline{s}}(\mathbf{x'}, t) \right) - d_{\overline{s},r}(t) \Big) \Int{\psi(\mathbf{x}, t) \delta(\mathbf{x} - \mathbf{x}_{s,r})}{\mathbf{x}, \Omega}
+            }{t, 0, T} 
+        }{r, 1, N_{r}}
+                \\ =
+    \frac{2}{\beta}  \Sum{
+             \Int{
+                 \Int{\Big( S_{\overline{s},r} \left( p_{\overline{s}}(\mathbf{x'}, t) \right) - d_{\overline{s},r}(t) \Big) \delta(\mathbf{x} - \mathbf{x}_{s,r})\, \psi(\mathbf{x}, t)}{\mathbf{x}, \Omega}
+            }{t, 0, T} 
+        }{r, 1, N_{r}}
+                \\ =
+    \frac{2}{\beta} \Sum{
+             \Int{\Int{
+                 S_{\overline{s},r}^{\dagger} \Big( S_{\overline{s},r} \left( p_{\overline{s}}(\mathbf{x'}, t) \right) - d_{\overline{s},r}(t) \Big) \, \psi(\mathbf{x}, t)
+             }{\mathbf{x}, \Omega}}{t, 0, T} 
+        }{r, 1, N_{r}},
+\end{multline}
+where $S_{\overline{s},r}^{\dagger}$ is the adjoint of the sampling operator,
+which just means placing a value at the position of the receiver.
+Substituting the equation above (Eq.~\ref{eq:costDeriv1}) into the expression
+of the derivative of the lagrangian with relation to the pressure (Eq.~\ref{eq:dLdp3})
+while equaling to zero to satisfy the adjoint state method conditions
+results into:
+\begin{multline}\label{eq:dLdp4}
+    \pderiv{\mathcal{L}\left(c, \mathbf{R}, p_{s}, \mathbf{v}_{s}, \mathbf{\xi}_{s}, \eta_{s}, \gamma_{s}, \mu_{s}, \mathbf{\zeta}_{s}, \mathbf{\lambda_{s}} \right)}{p_{\overline{s}}}\, \left( \delta_{s, \overline{s}} \, \psi(\mathbf{x}, t) \right) = \\
+    \frac{2}{\beta} \Sum{
+             \Int{\Int{
+                 S_{\overline{s},r}^{\dagger} \Big( S_{\overline{s},r} \left( p_{\overline{s}}(\mathbf{x'}, t) \right) - d_{\overline{s},r}(t) \Big) \, \psi(\mathbf{x}, t)
+             }{\mathbf{x}, \Omega}}{t, 0, T} 
+        }{r, 1, N_{r}}\\
++ 
+    \Sum{
+        \Int{\Int{
+            \left( \pderiv[1]{\xi_{\overline{s},i}}{x_{i}} \right) \; \psi
+        }{t,0,T}}{\mathbf{x}, \Omega}
+    }{i,1,2}
++
+        \Int{\Int{
+             \left( \pderiv[1]{\eta_{\overline{s}}}{t} \right) \psi
+        }{t,0,T}}{\mathbf{x}, \Omega} = 0,
+\end{multline}
+which is a weak/integral formulation of the following PDE:
+\Style{DDisplayFunc=inset,DShorten=false}
+\begin{multline}\label{eq:dLdp5}
+             \pderiv[1]{\eta_{s}}{t}
++
+    \Sum{
+             \pderiv[1]{\xi_{s,i}}{x_{i}}
+    }{i,1,2}
++ 
+    \frac{2}{\beta} \Sum{
+                 S_{s,r}^{\dagger} \Big( S_{s,r} \left( p_{s}(\mathbf{x'}, t) \right) - d_{s,r}(t) \Big)
+        }{r, 1, N_{r}}=0
+\end{multline}
+where the $\overline{s}$ were replaced with $s$ to simplify notation, given
+now it is clear that the equation is the same for any shot index.
+
+
+
+
+
 
 %%%%%%%%%%%%  Supplementary Figures  %%%%%%%%%%%%
 %\clearpage
